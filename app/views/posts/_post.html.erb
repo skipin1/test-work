@@ -1,0 +1,8 @@
+<% post.posts.each do |post| %>
+	<ul>
+		<li>ID - <%= post.id%>, Parent ID - <span style="color: red;"><%= post.postparent_id %></span>, <%= link_to post.title, post %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to "Удалить", post, :confirm => "Вы уверены?", :method => :delete %></li>
+		<% if post.posts %>
+			<%= render post %>
+		<% end %>
+	</ul>
+<% end %>

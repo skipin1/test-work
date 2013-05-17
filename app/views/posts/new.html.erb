@@ -1,0 +1,9 @@
+<h1>New post</h1>
+
+<% if @parent %>
+	<h3>Paretn ID - <%= @parent.id %></h3>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', root_path %>

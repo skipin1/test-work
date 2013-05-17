@@ -1,0 +1,45 @@
+<h1>Статьи</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Заголовок</th>
+    <th>Текст</th>
+    <!-- <th></th> -->
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+<% @posts.each do |post| %>
+  <ul class="parent_post">
+    <% if !post.postparent %>
+    <li>ID - <%= post.id%>, Parent ID - <span style="color: red;"><%= post.postparent_id %></span>, <%= link_to post.title, post %></li>
+    <% if post.posts %>
+      <%=render post %>
+    <% end %>
+    
+    <% end %> 
+  </ul>
+<% end %>
+
+<%
+=begin %>
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.id%></td>
+    <td><%= link_to post.title, post %></td>
+    <td><%= post.postparent_id %></td>
+    <td><%= post.body %></td>
+
+  </tr>
+<% end %>
+<%
+=end %>
+
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
