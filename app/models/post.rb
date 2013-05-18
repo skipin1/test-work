@@ -1,6 +1,11 @@
 # encoding: utf-8
 
 class Post < ActiveRecord::Base
+
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
+
 	has_many :posts, class_name: "Post", foreign_key: "postparent_id"
 	belongs_to :postparent, class_name: "Post"
 	

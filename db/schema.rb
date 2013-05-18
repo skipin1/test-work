@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507185909) do
+ActiveRecord::Schema.define(:version => 20130518053139) do
 
   create_table "posts", :force => true do |t|
     t.string   "name"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(:version => 20130507185909) do
     t.string   "postparent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   add_index "posts", ["postparent_id", "postparent_type"], :name => "index_posts_on_postparent_id_and_postparent_type"
+  add_index "posts", ["slug"], :name => "index_posts_on_slug"
 
 end
