@@ -28,6 +28,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'friendly_id'
+gem 'redcarpet'
 
 group :test do
   # Pretty printed test output

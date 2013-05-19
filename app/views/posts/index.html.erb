@@ -1,21 +1,10 @@
 <h1>Статьи</h1>
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Заголовок</th>
-    <th>Текст</th>
-    <!-- <th></th> -->
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-
+<% cache @post do %>
 <% @posts.each do |post| %>
   <ul class="parent_post">
     <% if !post.postparent %>
-    <li>ID - <%= post.id%>, Parent ID - <span style="color: red;"><%= post.postparent_id %></span>, <%= link_to post.title, post %></li>
+    <li> <span style="color: blue;">ID - <%= post.id%></span> <span style="font-size: 1.5em;"><%= link_to post.title, post %></span> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to "Удалить", post, :confirm => "Вы уверены?", :method => :delete %>
+    </li>
     <% if post.posts %>
       <%=render post %>
     <% end %>
@@ -38,8 +27,8 @@
 <%
 =end %>
 
-</table>
 
 <br />
 
 <%= link_to 'New Post', new_post_path %>
+<% end %>

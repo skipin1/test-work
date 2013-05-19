@@ -1,12 +1,14 @@
 TestJob::Application.routes.draw do
 
-  #get '*id', controller: 'posts', action: 'show'
-  
   resources :posts, path_names: {new: 'add'} do
     resources :posts
   end
+
+  get 'add' => 'posts#new'
+
+  get '*id', controller: 'posts', action: 'show'
   
-  #match 'add' => 'posts#new'
+  
 
     
   # The priority is based upon order of creation:

@@ -1,12 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% cache ['v1', @post] do %>
+	<p id="notice"><%= notice %></p>
 
 <h1><%= @post.title %></h1>
-<p><%= sanitize(@post.body) %></p>	<!-- .html_safe -->
+	<p><%= markdown(@post.body) %></p>
 
-<br />
-<div> Дочерние ресурсы:
-	<%= render @post %>
-</div>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', root_path %> |
-<%= link_to 'Add child`s post', new_post_post_path(@post) %>
+	<br />
+	<div> Дочерние ресурсы:
+		<%= render @post %>
+	</div>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<%= link_to 'Back', root_path %> |
+	<%= link_to 'Add child`s post', new_post_post_path(@post) %>
+<% end %>
