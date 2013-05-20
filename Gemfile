@@ -29,6 +29,7 @@ gem 'jquery-rails'
 
 gem 'friendly_id'
 gem 'redcarpet'
+gem 'rspec'
 
 group :test do
   # Pretty printed test output

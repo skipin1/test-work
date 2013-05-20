@@ -1,5 +1,5 @@
 <h1>Статьи</h1>
-<% cache @post do %>
+
 <% @posts.each do |post| %>
   <ul class="parent_post">
     <% if !post.postparent %>
@@ -31,4 +31,3 @@
 <br />
 
 <%= link_to 'New Post', new_post_path %>
-<% end %>

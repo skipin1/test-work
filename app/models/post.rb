@@ -2,8 +2,8 @@
 
 class Post < ActiveRecord::Base
 
-	extend FriendlyId
-	friendly_id :name, use: :slugged
+	extend FriendlyId 					# gem FriendlyId
+	friendly_id :name, use: :slugged	# use slug
 
 
 	has_many :posts, class_name: "Post", foreign_key: "postparent_id"
@@ -16,5 +16,5 @@ class Post < ActiveRecord::Base
 	#end
 
 	validates :name,	uniqueness: {message: 'Такое имя уже зарагистрированно'}
-	validates :name,	format: {with: /^[а-яёА-ЯЁa-zA-Z0-9_ ]+$/}
+	validates :name,	format: {with: /^[а-яёА-ЯЁa-zA-Z0-9_]+$/}
 end

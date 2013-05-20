@@ -13,10 +13,13 @@
   <% end %>
 
   <table>
+    <!-- Если имя определенно, то редактировать его не надо -->
+    <% unless @post.name? %>                    
     <tr>
       <td><%= f.label :name%></td>
       <td><%= f.text_field :name %></td>
     </tr>
+    <% end %>
     <tr>
       <td><%= f.label :title %></td>
       <td><%= f.text_field :title %></td>
